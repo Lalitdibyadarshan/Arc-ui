@@ -1,0 +1,58 @@
+{
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+	  "ecmaVersion": 2020,
+	  "sourceType": "module",
+	  "ecmaFeatures": {
+		"jsx": true
+	  }
+	},
+	"settings": {
+	  "react": {
+		"version": "detect"
+	}
+},
+	"extends": [
+	  "eslint:recommended",
+	  "plugin:react/recommended",
+	  "plugin:@typescript-eslint/recommended",
+	  "plugin:prettier/recommended",
+	//   "plugin:jsx-a11y/recommended",
+	//   "plugin:import/typescript" // added to resolve error "Unable to resolve path to module" - [https://stackoverflow.com/questions/55198502/using-eslint-with-typescript-unable-to-resolve-path-to-module]
+	],
+	"plugins": [
+		"react-hooks"
+	],
+	"rules": {
+		"react-hooks/rules-of-hooks": "error",
+		"react-hooks/exhaustive-deps": "warn",
+		"linebreak-style": ["error", "windows"],
+		"react/jsx-props-no-spreading": 0,
+		"dot-notation": 0,
+		"import/order": 0,
+		"arrow-body-style": 0,
+		"import/newline-after-import": 0,
+		"react/jsx-max-props-per-line": [1, { "maximum": 2 }],
+		"import/no-extraneous-dependencies": 0,
+		"no-use-before-define": "off",
+		"@typescript-eslint/no-use-before-define": ["error"],
+		"indent": ["warn", "tab"],
+		"import/prefer-default-export": 0,
+		"prettier/prettier": 0,
+		"import/extensions": 0,
+		"quotes": ["warn", "single", { "allowTemplateLiterals": true }],
+		"max-len": ["warn", { "code": 140, "tabWidth": 4, "ignoreComments": true, "ignoreTrailingComments": true }],
+		"no-undef-init": 2,
+		"array-bracket-spacing": 1,
+		"jsx-quotes": ["error", "prefer-double"],
+		"no-alert": "warn",
+		"no-eval":"error",
+		"no-trailing-spaces": "warn",
+		"keyword-spacing": "warn",
+		"eol-last": ["error", "always"],
+		"no-bitwise": "error",
+		"no-console": ["error", { "allow": ["warn", "error"] }],
+		"prefer-const": "warn",
+		"semi": "warn"
+	}
+  }

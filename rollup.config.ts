@@ -5,6 +5,7 @@ import pkg from './package.json';
 import visualizer from 'rollup-plugin-visualizer';
 import { terser } from 'rollup-plugin-terser';
 import postcss from 'rollup-plugin-postcss';
+import { eslint } from 'rollup-plugin-eslint';
 
 const production = process.argv.includes('prod');
 
@@ -29,6 +30,10 @@ export default {
 			extract: true,
 			modules: true,
 			use: ['sass'],
+		}),
+        eslint({
+			throwOnError: true,
+			fix: !production
 		}),
 		typescript({
 			useTsconfigDeclarationDir: true,
