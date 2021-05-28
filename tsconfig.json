@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+		"declaration": true,
+		"declarationDir": "lib/types",
+		"esModuleInterop": true,
+		"moduleResolution": "Node",
+		"jsx": "react",
+		"resolveJsonModule": true,
+		"strict": true,
+		"module": "ESNext",
+		"target": "es5",
+		"lib": ["DOM", "ES6"]
+	},
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "lib",
+        "src/**/*.stories.tsx"
+    ]
+}
