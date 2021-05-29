@@ -12,10 +12,27 @@
   "scripts": {
     "build": "rollup -c rollup.config.ts --environment prod",
     "build:analyze": "rollup -c rollup.config.ts",
-    "eslint": "eslint ./src",
-    "eslint:fix": "eslint ./src --fix",
+    "eslint": "eslint ./src/**/*.tsx --format table",
+    "eslint:fix": "yarn eslint --fix",
     "stylelint": "stylelint src/**/*.scss",
-    "stylelint:fix": "yarn stylelint --fix"
+    "stylelint:fix": "yarn stylelint --fix",
+    "prepare": "husky install"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.(tsx|ts)": [
+      "echo running eslint",
+      "yarn eslint:fix",
+      "git add"
+    ],
+    "src/**/*.scss": [
+      "echo running stylelint",
+      "yarn stylelint:fix"
+    ]
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^19.0.0",
@@ -28,6 +45,8 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
     "node-sass": "^6.0.0",
     "postcss": "^8.3.0",
     "prettier": "^2.3.0",
